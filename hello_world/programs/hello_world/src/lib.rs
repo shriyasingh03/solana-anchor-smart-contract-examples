@@ -8,6 +8,7 @@ pub mod hello_world{
 
     pub fn say_hello(ctx:Context<SayHello>)-> Result<()>{
         msg!("Hello, Solana!");
+        msg!("This is first smart contract");
 
         msg!("Called by: {:?}", ctx.accounts.user.key());
 

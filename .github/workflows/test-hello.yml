@@ -17,10 +17,10 @@ on:
       - "Anchor.toml"
       - "Cargo.toml"
       - "Cargo.lock"
-  workflow_dispatch:  # Manual trigger
+  workflow_dispatch:
 
 jobs:
   test:
     uses: solana-developers/github-workflows/.github/workflows/test.yaml@v0.2.5
     with:
-      program: "hello_world"   # 👈 matches the folder name
+      program: "hello_world"

@@ -4,11 +4,11 @@ on:
   push:
     branches: [main]
     paths:
-      - "programs/hello-world/**"        # ✅ fixed path
+      - "hello_world/**"        # ✅ fixed path
   pull_request:
     branches: [main]
     paths:
-      - "programs/hello-world/**"        # ✅ consistent
+      - "hello_world/**"        # ✅ consistent
   workflow_dispatch:
 
 jobs:
@@ -17,7 +17,7 @@ jobs:
 
     defaults:
       run:
-        working-directory: programs/hello-world   # ✅ correct folder
+        working-directory: hello_world   # ✅ correct folder
 
     steps:
       - uses: actions/checkout@v4

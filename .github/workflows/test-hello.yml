@@ -1,0 +1,26 @@
+name: Test Hello World Program
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "programs/hello_world/**"
+      - "tests/**"
+      - "Anchor.toml"
+      - "Cargo.toml"
+      - "Cargo.lock"
+  pull_request:
+    branches: [main]
+    paths:
+      - "programs/hello_world/**"
+      - "tests/**"
+      - "Anchor.toml"
+      - "Cargo.toml"
+      - "Cargo.lock"
+  workflow_dispatch:  # Manual trigger
+
+jobs:
+  test:
+    uses: solana-developers/github-workflows/.github/workflows/test.yaml@v0.2.5
+    with:
+      program: "hello_world"   # 👈 matches the folder name

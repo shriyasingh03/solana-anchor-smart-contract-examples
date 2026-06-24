@@ -17,7 +17,7 @@ jobs:
 
     defaults:
       run:
-        working-directory: hello-world   # 👈 IMPORTANT: CD into the project
+        working-directory: hello_world   # 👈 IMPORTANT: CD into the project
 
     steps:
       - uses: actions/checkout@v4

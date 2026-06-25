@@ -5,6 +5,7 @@ package_manager = "yarn"
 resolution = true
 skip-lint = false
 idl-build = true
+idl-spec = "v0.1.0"
 
 [programs.localnet]
 counter = "DnhGSQsfDTmkaWH2wyb6BscZnNqdRdpETpdeNjJDFC46"

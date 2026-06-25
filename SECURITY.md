@@ -1,0 +1,10 @@
+## Security Improvements
+
+The counter program has been hardened to avoid common pitfalls:
+
+- **Overflow/Underflow Protection**: Uses `require!` with custom errors instead of `unwrap()`.
+- **Clear Error Messages**: Clients receive `"Counter overflow"` or `"Counter underflow"` instead of a generic panic.
+- **PDA Validation**: The account is derived deterministically with `seeds = [b"counter"]` and the canonical bump.
+- **Signer Check**: All instructions require a valid `user` signature.
+
+These changes make the program safer and more maintainable.

@@ -4,11 +4,11 @@ on:
   push:
     branches: [main]
     paths:
-      - "hello_world/**"        # ✅ fixed path
+      - "hello_world/**"
   pull_request:
     branches: [main]
     paths:
-      - "hello_world/**"        # ✅ consistent
+      - "hello_world/**"
   workflow_dispatch:
 
 jobs:
@@ -17,17 +17,22 @@ jobs:
 
     defaults:
       run:
-        working-directory: hello_world   # ✅ correct folder
+        working-directory: hello_world
 
     steps:
       - uses: actions/checkout@v4
 
-      # ✅ NEW: Install Rust 1.85.0 (supports edition2024)
+      # ✅ Fix: Install Rust 1.85.0 properly
       - name: Install Rust
-        uses: actions-rs/toolchain@v1
+        uses: dtolnay/rust-toolchain@stable
         with:
           toolchain: 1.85.0
-          override: true
+
+      # ✅ Verify the correct version is installed
+      - name: Verify Rust version
+        run: |
+          rustc --version
+          cargo --version
 
       - name: Install Solana CLI
         run: |

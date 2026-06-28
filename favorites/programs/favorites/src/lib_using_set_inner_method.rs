@@ -4,6 +4,7 @@ declare_id!("FxVj5yvW1M3jKM2CAoWLHBBvbaoKhEtzj9Un2Twu3Juw");  // <-- added !
 
 pub const ANCHOR_DISCRIMINATOR_SIZE: usize = 8;
 
+
 #[program]
 pub mod favorites_using_set_inner {
     use super::*;
@@ -20,6 +21,8 @@ pub mod favorites_using_set_inner {
             "User {user_public_key}'s favorite number is {number}, favorite color is: {color}, and their hobbies are {hobbies:?}",
         );
 
+        mgs!("set_inner() is a helper method provided by Anchor on the Account<'info, T> wrapper.
+Its job is simple: completely replace the data payload of an on‑chain account with a new struct, while safely preserving the 8‑byte Anchor discriminator.");
         ctx.accounts.favorites.set_inner(Favorites {
             number,
             color,

@@ -1,3 +1,4 @@
+
 use anchor_lang::prelude::*;
 
 declare_id!("ENuWjmte9BG9YFG5TE2xcZBkhEme6GesosJTMH9ZG5Ls");  // <-- added !
@@ -21,7 +22,7 @@ pub mod favorites_using_set_inner {
             "User {user_public_key}'s favorite number is {number}, favorite color is: {color}, and their hobbies are {hobbies:?}",
         );
 
-        mgs!("set_inner() is a helper method provided by Anchor on the Account<'info, T> wrapper.
+        msg!("set_inner() is a helper method provided by Anchor on the Account<'info, T> wrapper.
 Its job is simple: completely replace the data payload of an on‑chain account with a new struct, while safely preserving the 8‑byte Anchor discriminator.");
         ctx.accounts.favorites.set_inner(Favorites {
             number,
@@ -57,3 +58,5 @@ pub struct SetFavorites<'info> {
     pub favorites: Account<'info, Favorites>,
     pub system_program: Program<'info, System>,
 }
+
+
